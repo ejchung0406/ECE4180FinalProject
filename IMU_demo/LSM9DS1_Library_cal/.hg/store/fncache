@@ -1,0 +1,7 @@
+data/PinDetect.lib.i
+data/main.cpp.i
+data/LSM9DS1.cpp.i
+data/LSM9DS1.h.i
+data/LSM9DS1_Registers.h.i
+data/LSM9DS1_Types.h.i
+data/mbed.bld.i
