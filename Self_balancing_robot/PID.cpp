@@ -13,38 +13,38 @@ void PID::update() {
     PID_flag = true;
 }
 
-float update_PID() {
+float PID::update_PID() {
     if (PID_flag) return out;
-    pid_loop->error = (pid_loop->set_point - cur_val) / pid_loop->error_division_factor;
-    pid_loop->error_d = pid_loop->error - pid_loop->p_error;
-    pid_loop->error_sum += pid_loop->error * pid_loop->Ki;
-    pid_loop->p_error = pid_loop->error;
-    if (pid_loop->error_sum > pid_loop->max) pid_loop->error_sum = pid_loop->max;
-    else if (pid_loop->error_sum < -pid_loop->max) pid_loop->error_sum = -pid_loop->max;
-    pid_loop->out = pid_loop->error * pid_loop->Kp + pid_loop->error_d * pid_loop->Kd + pid_loop->error_sum;
-    if (pid_loop->out > pid_loop->max) pid_loop->out = pid_loop->max;
-    else if (pid_loop->out < -pid_loop->max) pid_loop->out = -pid_loop->max;
-    else if (pid_loop->out < pid_loop->dead_zone && pid_loop->out > -pid_loop->dead_zone) pid_loop->out = 0;
-    //if (pid_loop.speed < 0) pid_loop.set_point += 0.0015;
-    //if (pid_loop.speed > 0) pid_loop.set_point -= 0.0015;
-    pid_loop->PID_flag = false;
-    return pid_loop->out;
+    error = (set_point - cur_val) / error_division_factor;
+    error_d = error - p_error;
+    error_sum += error * Ki;
+    p_error = error;
+    if (error_sum > max) error_sum = max;
+    else if (error_sum < -max) error_sum = -max;
+    out = error * Kp + error_d * Kd + error_sum;
+    if (out > max) out = max;
+    else if (out < -max) out = -max;
+    else if (out < dead_zone && out > -dead_zone) out = 0;
+    //if (.speed < 0) .set_point += 0.0015;
+    //if (.speed > 0) .set_point -= 0.0015;
+    PID_flag = false;
+    return out;
 }
 
-// float updatePID(struct PID *pid_loop, float cur_val) {
-//   if (!pid_loop->PID_flag) return pid_loop->out;
-//   pid_loop->error = (pid_loop->set_point - cur_val) / pid_loop->error_division_factor;
-//   pid_loop->error_d = pid_loop->error - pid_loop->p_error;
-//   pid_loop->error_sum += pid_loop->error * pid_loop->Ki;
-//   pid_loop->p_error = pid_loop->error;
-//   if (pid_loop->error_sum > pid_loop->max) pid_loop->error_sum = pid_loop->max;
-//   else if (pid_loop->error_sum < -pid_loop->max) pid_loop->error_sum = -pid_loop->max;
-//   pid_loop->out = pid_loop->error * pid_loop->Kp + pid_loop->error_d * pid_loop->Kd + pid_loop->error_sum;
-//   if (pid_loop->out > pid_loop->max) pid_loop->out = pid_loop->max;
-//   else if (pid_loop->out < -pid_loop->max) pid_loop->out = -pid_loop->max;
-//   else if (pid_loop->out < pid_loop->dead_zone && pid_loop->out > -pid_loop->dead_zone) pid_loop->out = 0;
-//   //if (pid_loop.speed < 0) pid_loop.set_point += 0.0015;
-//   //if (pid_loop.speed > 0) pid_loop.set_point -= 0.0015;
-//   pid_loop->PID_flag = false;
-//   return pid_loop->out;
+// float updatePID(struct PID *, float cur_val) {
+//   if (!PID_flag) return out;
+//   error = (set_point - cur_val) / error_division_factor;
+//   error_d = error - p_error;
+//   error_sum += error * Ki;
+//   p_error = error;
+//   if (error_sum > max) error_sum = max;
+//   else if (error_sum < -max) error_sum = -max;
+//   out = error * Kp + error_d * Kd + error_sum;
+//   if (out > max) out = max;
+//   else if (out < -max) out = -max;
+//   else if (out < dead_zone && out > -dead_zone) out = 0;
+//   //if (.speed < 0) .set_point += 0.0015;
+//   //if (.speed > 0) .set_point -= 0.0015;
+//   PID_flag = false;
+//   return out;
 // }
