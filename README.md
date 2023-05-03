@@ -6,3 +6,5 @@ The goal of this project is to design and implement a self-balancing robot using
 ## Team members
 Euijun Chung, Sai Kit Tang, Hyemin Lee
 
+## Wiki
+Check out our wiki page! [Wiki](https://github.com/ejchung0406/ECE4180FinalProject/wiki)
