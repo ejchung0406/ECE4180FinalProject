@@ -8,3 +8,6 @@ Euijun Chung, Sai Kit Tang, Hyemin Lee
 
 ## Wiki
 Check out our wiki page! [Wiki](https://github.com/ejchung0406/ECE4180FinalProject/wiki)
+
+## Demo video
+The final demo video link is right [here](https://photos.app.goo.gl/qDKoD6AyHZ6XkGybA)
