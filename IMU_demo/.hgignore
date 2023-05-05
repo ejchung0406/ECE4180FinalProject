@@ -1,7 +1,0 @@
-^BUILD$
-^.mbed$
-^compile_commands.json$
-^.clangd$
-^.cache$
-^LSM9DS1_Library_cal$
-^mbed$
